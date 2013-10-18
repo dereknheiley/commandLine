@@ -2,11 +2,28 @@ HISTFILESIZE=1000000000 HISTSIZE=1000000
 
 # Make ls use colors
 export CLICOLOR=1
+
+# basic shortcuts
 alias la='ls -alhF'
 alias ll='ls -lhF'
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 alias l='ls -Fa'
 alias ls='pwd;ls -F'
 alias EXIT='exit'
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en1"
+
+# Recursively delete `.DS_Store` files
+alias rmdsstore="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Show/hide hidden files in Finder
+alias showhidden="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
+alias hidehidden="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
 
 # SSH to Bluenose
 alias blue='ssh dneil@bluenose.cs.dal.ca'
@@ -14,16 +31,16 @@ alias blue='ssh dneil@bluenose.cs.dal.ca'
 # Mount Bluenose as a filesystem
 alias mblue='sshfs dneil@bluenose.cs.dal.ca: ~/Bluenose -oauto_cache,reconnect,volname=Bluenose'
 alias mbluew='sshfs dneil@bluenose.cs.dal.ca:/users/webhome/dneil/ ~/BluenoseWeb -oauto_cache,reconnect,volname=BluenoseWeb'
+# Unmount Bluenose as a filesystem                                                                                                     
+alias ublue='umount ~/Bluenose'
+alias ubluew='umount ~/BluenoseWeb'
 
 # Make mamp only available to my localhost
 alias mamplocal='sudo cp /Applications/MAMP/conf/apache/httpd.local /Applications/MAMP/conf/apache/httpd.conf; /Applications/MAMP/bin/apache2/bin/apachectl restart'
 # Make mamp available to anyone on the network
 alias mamp='sudo cp /Applications/MAMP/conf/apache/httpd.orig /Applications/MAMP/conf/apache/httpd.conf; /Applications/MAMP/bin/apache2/bin/apachectl restart'
 
-# Unmount Bluenose as a filesystem
-alias ublue='umount ~/Bluenose'
-alias ubluew='umount ~/BluenoseWeb'
-
+#edit this profile
 alias profile='emacs ~/.profile'
 alias catprofile='cat ~/.profile'
 
