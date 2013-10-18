@@ -3,6 +3,9 @@ HISTFILESIZE=1000000000 HISTSIZE=1000000
 # Append to the Bash history file, rather than overwriting it
 shopt -s histappend
 
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; echo -ne \"\033]0;${USER}@${HOSTNAME}\007\"; $PROMPT_COMMAND"
+
 # Make ls use colors
 export CLICOLOR=1
 
@@ -72,7 +75,7 @@ source /usr/local/git/contrib/completion/git-completion.bash
 
 alias grv='git remote -v'      #show list of remote repositories
 alias gb='git branch'
-alias gba='gb -a'              #show full branch listing including remote branches
+alias gba='gb -a --color'      #show full branch listing including remote branches
 
 alias gch='git checkout'       #switch between branches
 alias gchb='gch -b'            #create a new branch and switch to it
@@ -80,7 +83,7 @@ alias gchb='gch -b'            #create a new branch and switch to it
 alias gs='date; git status'
 alias gss='gs -s'              #more compact status
 
-alias gd='git diff'            #see code changes from last commit, doesn't include new files
+alias gd='git diff --color-words'            #see code changes from last commit, doesn't include new files
 alias gdc='gd --cached'        #see code changes currently staged for commit
 
 alias ga='git add'
@@ -109,7 +112,7 @@ alias gcma='gc --amend -m'
 alias gwc='git whatchanged'    #review commit messages and files that had changes for commit history
 alias gwcp='gwc -p'            #review lines of code that changed for commit history
 
-alias glogm='git log --graph --date-order --decorate'
+alias glogm='git log --graph --date-order --decorate --color-words'
 alias glog='glogm --oneline'
 alias glogam='glogm --all'
 alias gloga='glog --all'       #show commit graph with all branches
