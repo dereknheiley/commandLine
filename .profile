@@ -1,4 +1,7 @@
+# history stuff
 HISTFILESIZE=1000000000 HISTSIZE=1000000
+# Append to the Bash history file, rather than overwriting it
+shopt -s histappend
 
 # Make ls use colors
 export CLICOLOR=1
@@ -13,6 +16,12 @@ alias .....="cd ../../../.."
 alias l='ls -Fa'
 alias ls='pwd;ls -F'
 alias EXIT='exit'
+
+# Autocorrect typos in path names when using `cd`
+shopt -s cdspell
+
+# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
+[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
