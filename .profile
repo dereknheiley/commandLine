@@ -1,11 +1,5 @@
 HISTFILESIZE=1000000000 HISTSIZE=1000000
 
-#temp alias for programming test input
-#alias ccc='clear; date; gcc -g -Wall -std=c99 ToUpper.c -o ToUpper'
-alias t='clear; date; make common; ./common  <a7q1.in.1'
-alias td='clear; date; make common; ./common  <a7q1.in.1 > out; diff out a7q1.out.1'
-alias de='clear; date; make common; gdb ./common'
-
 # Make ls use colors
 export CLICOLOR=1
 alias la='ls -alhF'
@@ -33,8 +27,6 @@ alias ubluew='umount ~/BluenoseWeb'
 alias profile='emacs ~/.profile'
 alias catprofile='cat ~/.profile'
 
-alias cc='clear;date;make UserTracker.java'
-
 alias airdrop='echo defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1'
 
 # Switching to, and saving different time machine disks
@@ -49,8 +41,6 @@ alias s='source ~/.profile'
 # GIT
 # some aliases require additional arguments to complete
 # others can have additional functionality when used with more options
-
-alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/* \(.*\)/(\1)/'"
 
 alias grv='git remote -v'      #show list of remote repositories
 alias gb='git branch'
@@ -126,8 +116,8 @@ alias play='qlmanage -p'
 alias folder='open -R'
 alias show='open -R'
 
-#user prompt colours \[\033[0;37m\][\t\[\033[0;37m\]]\[\033[0;33m\]
-# export PS1='[\t]\[\033[0;33m\][\[\033[0;36m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h \[\033[0;32m\]\w\[\033[0;33m\]]\[\033[0;31m\]$(__git_ps1\)\[\033[0;37m\]\\$ \[\033[00m\]'
+#user prompt colours
+alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/* \(.*\)/(\1)/'"
 export PS1='[\t]\[\033[0;36m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h \[\033[0;32m\]\w\[\033[0;31m\]$(__git_ps1)\[\033[0;37m\]\\$ \[\033[00m\]'
 
 # LSCOLORS needs 11 sets of letters indicating foreground and background colors:
@@ -162,7 +152,6 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 # H  bold light grey; looks like bright white
 # x  default foreground or background
 
-# MacPorts Installer addition on 2012-07-03_at_08:58:31: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
+
 
