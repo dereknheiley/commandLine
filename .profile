@@ -42,6 +42,8 @@ alias s='source ~/.profile'
 # some aliases require additional arguments to complete
 # others can have additional functionality when used with more options
 
+source /usr/local/git/contrib/completion/git-completion.bash
+
 alias grv='git remote -v'      #show list of remote repositories
 alias gb='git branch'
 alias gba='gb -a'              #show full branch listing including remote branches
