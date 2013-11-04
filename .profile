@@ -91,6 +91,7 @@ source /usr/local/git/contrib/completion/git-completion.bash
 alias grv='git remote -v'      #show list of remote repositories
 alias gb='git branch'
 alias gba='gb -a --color'      #show full branch listing including remote branches
+alias gbd='gb -D'              #force delete git branch
 
 alias gch='git checkout'       #switch between branches
 alias gchb='gch -b'            #create a new branch and switch to it
@@ -129,8 +130,11 @@ alias gwcp='gwc -p'            #review lines of code that changed for commit his
 
 alias glogm='git log --graph --date-order --decorate --color-words'
 alias glog='glogm --oneline'
+alias glogp='glog -p'
 alias glogam='glogm --all'
+alias glogamp='glogam -p'
 alias gloga='glog --all'       #show commit graph with all branches
+alias glogap='gloga -p'
 alias gloga5='gloga -n 5'
 alias gloga10='gloga -n 10'
 alias gloga15='gloga -n 15'
