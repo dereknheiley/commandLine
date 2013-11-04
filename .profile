@@ -9,6 +9,11 @@ export PROMPT_COMMAND="history -a; history -c; history -r; echo -ne \"\033]0;${U
 # Make ls use colors
 export CLICOLOR=1
 
+#remind me of aliases
+alias aliases='echo "la ll .. ... .... ..... l ls EXIT clearIOSsim fixarchiveutility ip localip rmdsstore showhidden hidehidden blue mblue mbluew ublue ubluew mamplocal mamp profile catprofile airdrop dn newdn ver newver pl s ql quick look peek previous play folder show metasize"'
+
+alias gits='echo "grv gb gba gbd gch gchb gs gss gd gdc ga gap gai gaa gr unstage grh uncommit gst gsts gstp gc gca gcaa gcm gcam gcama gcma gwc gwcp glogm glog gloga gloga5 gloga10 gloga15 gloga20 gh gl glr gf gua gul guh gum gus gm gmnc gmnff "'
+
 # basic shortcuts
 alias la='ls -alhF'
 alias ll='ls -lhF'
