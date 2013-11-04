@@ -25,6 +25,16 @@ alias l='ls -Fa'
 alias ls='pwd;ls -F'
 alias EXIT='exit'
 
+# clear IOS simulator
+alias clearIOSsim="rm -rf ~/Library/Application\ Support/iPhone\ Simulator"
+
+# Fix osx archive utility hanging
+alias fixarchiveutility='sudo killall -9 appleeventsd'
+
+
+# Find and show size of all .metadata folders on system
+alias metasize="find / -iname '.metadata' -print0 2>/dev/null | xargs -0 du -sh '{}'"
+
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
 
