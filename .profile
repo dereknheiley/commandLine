@@ -12,7 +12,7 @@ export CLICOLOR=1
 #remind me of aliases
 alias aliases='echo "la ll .. ... .... ..... l ls EXIT clearIOSsim fixarchiveutility ip localip rmdsstore showhidden hidehidden blue mblue mbluew ublue ubluew mamplocal mamp profile catprofile airdrop dn newdn ver newver pl s ql quick look peek previous play folder show metasize"'
 
-alias gits='echo "grv gb gba gbd gch gchb gs gss gd gdc ga gap gai gaa gr unstage grh uncommit gst gsts gstp gc gca gcaa gcm gcam gcama gcma gwc gwcp glogm glog gloga gloga5 gloga10 gloga15 gloga20 gh gl glr gf gua gul guh gum gus gm gmnc gmnff "'
+alias gits='echo "grv gb gba gbd gch gchb gs gss gd gdc ga gap gai gaa gr abandon unstage grh uncommit gst gsts gstp gc gca gcaa gcm gcam gcama gcma gwc gwcp glogm glog gloga gloga5 gloga10 gloga15 gloga20 gh gl glr gf gua gul guh gum gus gm gmnc gmnff "'
 
 # basic shortcuts
 alias la='ls -alhF'
@@ -27,6 +27,7 @@ alias EXIT='exit'
 
 # clear IOS simulator
 alias clearIOSsim="rm -rf ~/Library/Application\ Support/iPhone\ Simulator"
+alias openSimFolder="~/Library/Application Support/iPhone Simulator/"
 
 # Fix osx archive utility hanging
 alias fixarchiveutility='sudo killall -9 appleeventsd'
@@ -109,6 +110,7 @@ alias gaa='ga -A'              #blanket add changes, deletions, and any new file
 
 alias gr='git reset'           #remove file from staging
 alias unstage='gr'
+alias abandon='git checkout --' #discard changes in working file and revert back to last commit version
 alias grh='gr --hard'          #reset branch to last commit and throw away changes since
 alias uncommit='gr HEAD^'      #undo last commit but keep local changes
 
