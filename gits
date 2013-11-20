@@ -3,6 +3,7 @@
 # others can have additional functionality when used with more options                                                                                
 
 source /usr/local/git/contrib/completion/git-completion.bash
+git config --global color.ui always
 
 alias gits='cat ~/gits'
 alias mygits='nano ~/gits'
