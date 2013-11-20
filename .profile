@@ -96,7 +96,7 @@ alias folder='open -R'
 alias show='open -R'
 
 #user prompt colours
-export PS1='[\t]\[\033[0;36m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h \[\033[0;32m\]\w\[\033[0;31m\]$(__git_ps1)\[\033[0;37m\]\\$ \[\033[00m\]'
+export PS1='[\t]\[\033[0;34m\]\u\[\033[0;34m\]@\[\033[0;34m\]\h \[\033[0;34m\]\w\[\033[0;31m\]$(__git_ps1)\[\033[0;37m\]\\$ \[\033[00m\]'
 
 # LSCOLORS needs 11 sets of letters indicating foreground and background colors:
 export LSCOLORS=ExFxCxDxBxegedabagacad
