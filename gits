@@ -10,7 +10,7 @@ alias mygits='nano ~/gits'
 
 alias grv='git remote -v'      #show list of remote repositories                                                                                      
 alias gb='git branch'
-alias gba='gb -a --color'      #show full branch listing including remote branches                                                                    
+alias gba='gb -a'      #show full branch listing including remote branches                                                                    
 alias gbd='gb -D'              #force delete git branch                                                                                               
 
 alias gch='git checkout'       #switch between branches                                                                                               
@@ -19,7 +19,7 @@ alias gchb='gch -b'            #create a new branch and switch to it
 alias gs='git status'
 alias gss='gs -s'              #more compact status                                                                                                   
 
-alias gd='git diff --color-words'            #see code changes from last commit, doesn't include new files                                            
+alias gd='git diff'            #see code changes from last commit, doesn't include new files                                            
 alias gdc='gd --cached'        #see code changes currently staged for commit                                                                          
 
 alias ga='git add'
@@ -55,12 +55,12 @@ alias gtagam='git tag -am'
 alias gtags='git describe --tags'
 alias gtagl='git tag -l'
 
-alias gwc='git whatchanged --color-words --decorate'    #review commit messages and files that had changes for commit history                         
+alias gwc='git whatchanged --decorate'    #review commit messages and files that had changes for commit history                         
 alias gwcp='gwc -p'            #review lines of code that changed for commit history                                                                  
 alias gwca='gwc --all'
 alias gwcap='gwca -p'
 
-alias glogm='git log --graph --date-order --decorate --color-words'
+alias glogm='git log --graph --date-order --decorate'
 alias glogmp='glogmp'
 alias glogam='glogm --all'
 alias glogamp='glogam -p'
@@ -70,7 +70,7 @@ alias gloga='glog --all'       #show commit graph with all branches
 alias glogap='gloga -p'
 alias gloga5='gloga -n 5'
 
-alias gshow='git show --color'
+alias gshow='git show'
 
 alias gh='git push'
 alias ght='git push --tags'
