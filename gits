@@ -5,6 +5,7 @@
 source /usr/local/git/contrib/completion/git-completion.bash
 
 alias gits='cat ~/gits'
+alias mygits='nano ~/gits'
 
 alias grv='git remote -v'      #show list of remote repositories                                                                                      
 alias gb='git branch'
@@ -14,7 +15,7 @@ alias gbd='gb -D'              #force delete git branch
 alias gch='git checkout'       #switch between branches                                                                                               
 alias gchb='gch -b'            #create a new branch and switch to it                                                                                  
 
-alias gs='date; git status'
+alias gs='git status'
 alias gss='gs -s'              #more compact status                                                                                                   
 
 alias gd='git diff --color-words'            #see code changes from last commit, doesn't include new files                                            
@@ -28,10 +29,17 @@ alias gau='ga -u'              #blanket add changes and deletions only, untracke
 
 alias gignore='([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore'
 alias guignore='([ ! -e .gitignore ] && touch .gitignore) | cat .gitignore | grep -v $1 >.gitignore'
+alias ignores='cat .gitignore'
 
 alias gst='git stash'          #stash away any changes to a branch, usefull so you can switch between branches without commit                         
 alias gsts='gst save'          #stash with a name                                                                                                     
 alias gstp='gst pop'           #pop last stash back into current working branch                                                                       
+
+alias gr='git reset'           #remove file from staging
+alias unstage='git rm --cached -r'
+alias abandon='git checkout --' #discard changes in working file and revert back to last commit version
+alias grh='gr --hard'          #reset branch to last commit and throw away changes since
+alias uncommit='gr HEAD^'      #undo last commit but keep local changes
 
 alias gc='git commit'          #commit currently staged files                                                                                         
 alias gca='gc -a'              #automatically stage deleted and modified files before commiting                                                       
