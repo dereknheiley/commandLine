@@ -63,7 +63,8 @@ alias gloga5='gloga -n 5'
 
 alias gshow='git show --color'
 
-alias gh='git push --tags'
+alias gh='git push'
+alias ght='git push --tags'
 alias gl='git pull'             #not recommended                                                                                                      
 alias glr='gl --rebase'         #not recommended                                                                                                      
 alias gf='git fetch'            #use this instead, review changes, then merge locally as desired                                                      
