@@ -14,8 +14,7 @@ alias profile='emacs ~/.profile'
 alias catprofile='cat ~/.profile'
 
 #remind me of aliases
-alias aliases='gits -v'
-alias gits="catprofile | grep -E \"='g|alias g\""
+alias aliases='cat profile'
 
 # basic shortcuts
 alias la='ls -alhF'
@@ -35,7 +34,6 @@ alias unstoryboard="abandon Ship-Fit/Ship-Fit/en.lproj/MainStoryboard_iP*" #git 
 
 # Fix osx archive utility hanging
 alias fixarchiveutility='sudo killall -9 appleeventsd'
-
 
 # Find and show size of all .metadata folders on system
 alias metasize="find / -iname '.metadata' -print0 2>/dev/null | xargs -0 du -sh '{}'"
@@ -84,93 +82,7 @@ alias pl='pwd; ls -Fa'
 alias s='source ~/.profile'
 
 # GIT
-# some aliases require additional arguments to complete
-# others can have additional functionality when used with more options
-
-source /usr/local/git/contrib/completion/git-completion.bash
-
-alias grv='git remote -v'      #show list of remote repositories
-alias gb='git branch'
-alias gba='gb -a --color'      #show full branch listing including remote branches
-alias gbd='gb -D'              #force delete git branch
-
-alias gch='git checkout'       #switch between branches
-alias gchb='gch -b'            #create a new branch and switch to it
-
-alias gs='date; git status'
-alias gss='gs -s'              #more compact status
-
-alias gd='git diff --color-words'            #see code changes from last commit, doesn't include new files
-alias gdc='gd --cached'        #see code changes currently staged for commit
-
-alias ga='git add'
-alias gap='ga -p'              #pick which hunks of code in a file to stage for commit
-alias gai='ga -i'              #more interactive (complicated) way to stage files and hunks of code for commit
-alias gaa='ga -A'              #same as git add . blanket add changes, deletions, and any new files not expressly ignored
-alias gau='ga -u'              #blanket add changes and deletions only, untracked files remain untracked
-
-alias gr='git reset'           #remove file from staging
-alias unstage='gr'
-alias abandon='git checkout --' #discard changes in working file and revert back to last commit version
-alias grh='gr --hard'          #reset branch to last commit and throw away changes since
-alias uncommit='gr HEAD^'      #undo last commit but keep local changes
-
-alias gignore='([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore'
-alias guignore='([ ! -e .gitignore ] && touch .gitignore) | cat .gitignore | grep -v $1 >.gitignore'
-
-alias gst='git stash'          #stash away any changes to a branch, usefull so you can switch between branches without commit
-alias gsts='gst save'          #stash with a name
-alias gstp='gst pop'           #pop last stash back into current working branch
-
-alias gc='git commit'          #commit currently staged files
-alias gca='gc -a'              #automatically stage deleted and modified files before commiting
-alias gcaa='gca --amend'       #stage any changes and add to last commit
-alias gcm='gc -m'              #type commit message as argument for command
-alias gcam='gca -m'
-alias gcama='gcaa -m'
-alias gcma='gc --amend -m'
-alias amend='gcma'
-
-alias gtagam='git tag -am'
-alias gtags='git describe --tags'
-alias gtagl='git tag -l'
-
-alias gwc='git whatchanged --color-words --decorate'    #review commit messages and files that had changes for commit history
-alias gwcp='gwc -p'            #review lines of code that changed for commit history
-alias gwca='gwc --all'
-alias gwcap='gwca -p'
-
-alias glogm='git log --graph --date-order --decorate --color-words'
-alias glogmp='glogmp'
-alias glogam='glogm --all'
-alias glogamp='glogam -p'
-alias glog='glogm --oneline'
-alias glogp='glog -p'
-alias gloga='glog --all'       #show commit graph with all branches
-alias glogap='gloga -p'
-alias gloga5='gloga -n 5'
-alias gloga10='gloga -n 10'
-alias gloga15='gloga -n 15'
-alias gloga20='gloga -n 20'
-
-alias gshow='git show --color'
-
-alias gh='git push --tags'
-alias gl='git pull'             #not recommended
-alias glr='gl --rebase'         #not recommended
-alias gf='git fetch'            #use this instead, review changes, then merge locally as desired
-
-alias gua='git subtree add -P'
-alias gul='git subtree pull -P'   #required arguments <folder> [options] <repo> <branch>
-alias guh='git subtree push -P'
-alias gum='git subtree merge -P'
-alias gus='git subtree split -P'
-
-alias gm='git merge'
-alias gmtheirs='gm -Xtheirs'
-alias gmnc='gm --no-commit'
-alias gmnff='gm --no-ff'        #recommended merge command for more visual commit history
-alias gmtheirsnff='gmnff -Xtheirs'
+source ~/gits
 
 # preview aliases
 alias ql='qlmanage -p'
@@ -184,7 +96,6 @@ alias folder='open -R'
 alias show='open -R'
 
 #user prompt colours
-alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/* \(.*\)/(\1)/'"
 export PS1='[\t]\[\033[0;36m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h \[\033[0;32m\]\w\[\033[0;31m\]$(__git_ps1)\[\033[0;37m\]\\$ \[\033[00m\]'
 
 # LSCOLORS needs 11 sets of letters indicating foreground and background colors:
