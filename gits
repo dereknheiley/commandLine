@@ -6,7 +6,7 @@ source /usr/local/git/contrib/completion/git-completion.bash
 git config --global color.ui true #change to always for colours to carry through pipes
 
 alias gits='cat ~/gits'
-alias mygits='nano ~/gits'
+alias mygits='emacs ~/gits'
 
 alias grv='git remote -v'      #show list of remote repositories                                                                                      
 alias gb='git branch'
@@ -71,6 +71,7 @@ alias glogap='gloga -p'
 alias gloga5='gloga -n 5'
 
 alias gshow='git show'
+alias grefl='git reflog --decorate'
 
 alias gh='git push'
 alias ght='git push --tags'
@@ -86,9 +87,11 @@ alias gus='git subtree split -P'
 
 alias gm='git merge'
 alias gmtheirs='gm -Xtheirs'
+alias gmours='gm -Xours'
 alias gmnc='gm --no-commit'
 alias gmnff='gm --no-ff'        #recommended merge command for more visual commit history                                                             
 alias gmtheirsnff='gmnff -Xtheirs'
+alias gmoursnff='gmnff -Xours'
 
 #user prompt colours                                                                                                                                  
 alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/* \(.*\)/(\1)/'"
