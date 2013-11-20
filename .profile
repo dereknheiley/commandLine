@@ -9,10 +9,13 @@ export PROMPT_COMMAND="history -a; history -c; history -r; echo -ne \"\033]0;${U
 # Make ls use colors
 export CLICOLOR=1
 
-#remind me of aliases
-alias aliases='echo "la ll .. ... .... ..... l ls EXIT clearIOSsim fixarchiveutility ip localip rmdsstore showhidden hidehidden blue mblue mbluew ublue ubluew mamplocal mamp profile catprofile airdrop dn newdn ver newver pl s ql quick look peek previous play folder show metasize"'
+#edit this profile
+alias profile='emacs ~/.profile'
+alias catprofile='cat ~/.profile'
 
-alias gits='echo "grv gb gba gbd gch gchb gs gss gd gdc ga gap gai gaa gr abandon unstage grh uncommit gst gsts gstp gc gca gcaa gcm gcam gcama gcma gwc gwcp glogm glog gloga gloga5 gloga10 gloga15 gloga20 gh gl glr gf gua gul guh gum gus gm gmnc gmnff "'
+#remind me of aliases
+alias aliases='gits -v'
+alias gits="catprofile | grep -E \"='g|alias g\""
 
 # basic shortcuts
 alias la='ls -alhF'
@@ -27,7 +30,8 @@ alias EXIT='exit'
 
 # clear IOS simulator
 alias clearIOSsim="rm -rf ~/Library/Application\ Support/iPhone\ Simulator"
-alias openSimFolder="~/Library/Application Support/iPhone Simulator/"
+alias openSimFolder="open ~/Library/Application Support/iPhone Simulator/"
+alias unstoryboard="abandon Ship-Fit/Ship-Fit/en.lproj/MainStoryboard_iP*" #git reset HEAD storyboards, for ditching xcode 5 updates, careful though!
 
 # Fix osx archive utility hanging
 alias fixarchiveutility='sudo killall -9 appleeventsd'
@@ -68,10 +72,6 @@ alias mamplocal='sudo cp /Applications/MAMP/conf/apache/httpd.local /Application
 # Make mamp available to anyone on the network
 alias mamp='sudo cp /Applications/MAMP/conf/apache/httpd.orig /Applications/MAMP/conf/apache/httpd.conf; /Applications/MAMP/bin/apache2/bin/apachectl restart'
 
-#edit this profile
-alias profile='emacs ~/.profile'
-alias catprofile='cat ~/.profile'
-
 alias airdrop='echo defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1'
 
 # Switching to, and saving different time machine disks
@@ -106,7 +106,8 @@ alias gdc='gd --cached'        #see code changes currently staged for commit
 alias ga='git add'
 alias gap='ga -p'              #pick which hunks of code in a file to stage for commit
 alias gai='ga -i'              #more interactive (complicated) way to stage files and hunks of code for commit
-alias gaa='ga -A'              #blanket add changes, deletions, and any new files not expressly ignored
+alias gaa='ga -A'              #same as git add . blanket add changes, deletions, and any new files not expressly ignored
+alias gau='ga -u'              #blanket add changes and deletions only, untracked files remain untracked
 
 alias gr='git reset'           #remove file from staging
 alias unstage='gr'
@@ -114,6 +115,8 @@ alias abandon='git checkout --' #discard changes in working file and revert back
 alias grh='gr --hard'          #reset branch to last commit and throw away changes since
 alias uncommit='gr HEAD^'      #undo last commit but keep local changes
 
+alias gignore='([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore'
+alias guignore='([ ! -e .gitignore ] && touch .gitignore) | cat .gitignore | grep -v $1 >.gitignore'
 
 alias gst='git stash'          #stash away any changes to a branch, usefull so you can switch between branches without commit
 alias gsts='gst save'          #stash with a name
@@ -126,15 +129,23 @@ alias gcm='gc -m'              #type commit message as argument for command
 alias gcam='gca -m'
 alias gcama='gcaa -m'
 alias gcma='gc --amend -m'
+alias amend='gcma'
 
-alias gwc='git whatchanged'    #review commit messages and files that had changes for commit history
+alias gtagam='git tag -am'
+alias gtags='git describe --tags'
+alias gtagl='git tag -l'
+
+alias gwc='git whatchanged --color-words --decorate'    #review commit messages and files that had changes for commit history
 alias gwcp='gwc -p'            #review lines of code that changed for commit history
+alias gwca='gwc --all'
+alias gwcap='gwca -p'
 
 alias glogm='git log --graph --date-order --decorate --color-words'
-alias glog='glogm --oneline'
-alias glogp='glog -p'
+alias glogmp='glogmp'
 alias glogam='glogm --all'
 alias glogamp='glogam -p'
+alias glog='glogm --oneline'
+alias glogp='glog -p'
 alias gloga='glog --all'       #show commit graph with all branches
 alias glogap='gloga -p'
 alias gloga5='gloga -n 5'
@@ -142,7 +153,9 @@ alias gloga10='gloga -n 10'
 alias gloga15='gloga -n 15'
 alias gloga20='gloga -n 20'
 
-alias gh='git push'
+alias gshow='git show --color'
+
+alias gh='git push --tags'
 alias gl='git pull'             #not recommended
 alias glr='gl --rebase'         #not recommended
 alias gf='git fetch'            #use this instead, review changes, then merge locally as desired
@@ -154,8 +167,10 @@ alias gum='git subtree merge -P'
 alias gus='git subtree split -P'
 
 alias gm='git merge'
+alias gmtheirs='gm -Xtheirs'
 alias gmnc='gm --no-commit'
 alias gmnff='gm --no-ff'        #recommended merge command for more visual commit history
+alias gmtheirsnff='gmnff -Xtheirs'
 
 # preview aliases
 alias ql='qlmanage -p'
