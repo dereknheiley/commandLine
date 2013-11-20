@@ -4,7 +4,7 @@
 
 source /usr/local/git/contrib/completion/git-completion.bash
 
-alias gits='cat gits'
+alias gits='cat ~/gits'
 
 alias grv='git remote -v'      #show list of remote repositories                                                                                      
 alias gb='git branch'
