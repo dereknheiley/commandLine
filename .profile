@@ -14,7 +14,7 @@ alias profile='emacs ~/.profile'
 alias catprofile='cat ~/.profile'
 
 #remind me of aliases
-alias aliases='cat profile'
+alias aliases='catprofile'
 
 # basic shortcuts
 alias la='ls -alhF'
