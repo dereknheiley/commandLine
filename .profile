@@ -27,6 +27,16 @@ alias l='ls -Fa'
 alias ls='pwd;ls -F'
 alias EXIT='exit'
 
+alias du1='du -ha --max-depth=1 2>/dev/null'
+alias du2='du -ha --max-depth=2 2>/dev/null'
+
+alias findreadable='find . -perm -o=r 2>/dev/null'
+alias findreadable1='findreadable -maxdepth 1'
+alias findreadable2='find . -maxdepth 2 -type d -perm -o=r 2>/dev/null'
+alias findreadabledir='find . -maxdepth 1 -type d -perm -o=r 2>/dev/null'
+alias findreadablefile='find . -maxdepth 1 -type f -perm -o=r 2>/dev/null'
+alias findreadablefile3='find . -maxdepth 3 -type f -perm -o=r 2>/dev/null'
+
 # clear IOS simulator
 alias clearIOSsim="rm -rf ~/Library/Application\ Support/iPhone\ Simulator"
 alias openSimFolder="open ~/Library/Application Support/iPhone Simulator/"
@@ -57,6 +67,9 @@ alias hidehidden="defaults write com.apple.Finder AppleShowAllFiles -bool false 
 
 # SSH to Bluenose
 alias blue='ssh dneil@bluenose.cs.dal.ca'
+
+# connect to school mysql
+alias mysql='mysql -u dneil -h db.cs.dal.ca -p'
 
 # Mount Bluenose as a filesystem
 alias mblue='sshfs dneil@bluenose.cs.dal.ca: ~/Bluenose -oauto_cache,reconnect,volname=Bluenose'
