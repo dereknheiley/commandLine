@@ -38,7 +38,8 @@ alias gsts='gst save'          #stash with a name
 alias gstp='gst pop'           #pop last stash back into current working branch
 
 alias gr='git reset'           #remove file from staging
-alias unstage='git rm --cached -r'
+alias untrack='git rm --cached -r'
+alias unstage='gr HEAD'
 alias abandon='git checkout --' #discard changes in working file and revert back to last commit version
 alias grh='gr --hard'          #reset branch to last commit and throw away changes since
 alias uncommit='gr HEAD^'      #undo last commit but keep local changes
