@@ -64,15 +64,20 @@ alias gwcap='gwca -p'
 
 alias glogm='git log --graph --date-order --decorate'
 alias glogmp='glogmp'
-alias glogam='glogm --all $(git fsck --no-reflogs | grep commit | cut -d" " -f3)'
+alias glogam='glogm --all' 
 alias glogamp='glogam -p'
 alias glog='glogm --oneline'
 alias glogs='glog --stat'
 alias glogp='glog -p'
-alias gloga='glog --all $(git fsck --no-reflogs | grep commit | cut -d" " -f3)'       #show commit graph with all branches
+alias gloga='glog --all'       #show commit graph with all branches
 alias glogas='gloga --stat'
 alias glogap='gloga -p'
 alias gloga5='gloga -n 5'
+
+#show all dangling commits in the log
+alias oops='glog --all $(git fsck --no-reflogs | grep commit | cut -d" " -f3)'       #show commit graph with all branches
+alias everything='glog --all $(git fsck --no-reflogs | cut -d" " -f3)'       #show commit graph with all branches
+alias cleaneverything='git reflog expire --expire-unreachable=now --all --verbose; git gc --prune=now'
 
 alias gshow='git show'
 alias grefl='git reflog --decorate'
