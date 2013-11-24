@@ -2,8 +2,9 @@
 # some aliases require additional arguments to complete
 # others can have additional functionality when used with more options
 
-source /usr/local/git/contrib/completion/git-completion.bash
+#source /usr/local/git/contrib/completion/git-completion.bash
 git config --global color.ui true #change to always for colours to carry through pipes
+git config core.fileMode false
 
 alias gits='cat ~/gits'
 alias mygits='emacs ~/gits'
