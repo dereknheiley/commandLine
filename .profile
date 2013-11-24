@@ -56,14 +56,14 @@ shopt -s cdspell
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
+alias localip="ipconfig getifaddr en0"
 
 # Recursively delete `.DS_Store` files
 alias rmdsstore="find . -type f -name '*.DS_Store' -ls -delete"
 
 # Show/hide hidden files in Finder
-alias showhidden="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
-alias hidehidden="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
+alias showhidden="defaults write com.apple.finder AppleShowAllFiles -boolean true && killall Finder"
+alias hidehidden="defaults delete com.apple.finder AppleShowAllFiles && killall Finder"
 
 # SSH to Bluenose
 alias blue='ssh dneil@bluenose.cs.dal.ca'
