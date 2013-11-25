@@ -59,7 +59,8 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 
 # Recursively delete `.DS_Store` files
-alias rmdsstore="find . -type f -name '*.DS_Store' -ls -delete"
+alias dsstore="find . -iname '.DS_Store'"
+alias rmdsstore="find . -iname '.DS_Store' -delete"
 
 # Show/hide hidden files in Finder
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles -boolean true && killall Finder"
