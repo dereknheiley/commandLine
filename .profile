@@ -9,6 +9,10 @@ export PROMPT_COMMAND="history -a; history -c; history -r; echo -ne \"\033]0;${U
 # Make ls use colors
 export CLICOLOR=1
 
+alias project="cd ~/Google\ Drive/Dropbox/4176\ Mobile/project/"
+
+alias bat='~/.battery.sh; cat ~/.batteryHistoryToUpload'
+
 #edit this profile
 alias profile='emacs ~/.profile'
 alias catprofile='cat ~/.profile'
