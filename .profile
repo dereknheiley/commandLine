@@ -43,7 +43,7 @@ alias findreadablefile3='find . -maxdepth 3 -type f -perm -o=r 2>/dev/null'
 
 # clear IOS simulator
 alias clearIOSsim="rm -rf ~/Library/Application\ Support/iPhone\ Simulator"
-alias openSimFolder="open ~/Library/Application Support/iPhone Simulator/"
+alias sim="open ~/Library/Application\ Support/iPhone\ Simulator/"
 alias unstoryboard="abandon Ship-Fit/Ship-Fit/en.lproj/MainStoryboard_iP*" #git reset HEAD storyboards, for ditching xcode 5 updates, careful though!
 
 # Fix osx archive utility hanging
