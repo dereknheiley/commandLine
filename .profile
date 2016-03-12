@@ -14,7 +14,7 @@ alias project="cd ~/Google\ Drive/Dropbox/4176\ Mobile/project/"
 alias bat='~/.battery.sh; cat ~/.batteryHistoryToUpload'
 
 #edit this profile
-alias profile='emacs ~/.profile'
+alias profile='sublime ~/.profile'
 alias catprofile='cat ~/.profile'
 
 #remind me of aliases
@@ -50,7 +50,7 @@ alias unstoryboard="abandon Ship-Fit/Ship-Fit/en.lproj/MainStoryboard_iP*" #git 
 alias fixarchiveutility='sudo killall -9 appleeventsd'
 
 # Find and show size of all .metadata folders on system
-alias metasize="find / -iname '.metadata' -print0 2>/dev/null | xargs -0 du -sh '{}'"
+alias metasize="find . -iname '*.metadata*' | xargs -I {} du -sh {}"
 
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
@@ -70,8 +70,15 @@ alias rmdsstore="find . -iname '.DS_Store' -delete"
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles -boolean true && killall Finder"
 alias hidehidden="defaults delete com.apple.finder AppleShowAllFiles && killall Finder"
 
+# toggle osx key repeat
+alias repeat='defaults write -g ApplePressAndHoldEnabled -bool false'
+alias unrepeat='defaults write -g ApplePressAndHoldEnabled -bool false'
+alias norepeat=unrepeat
+
 # SSH to Bluenose
 alias blue='ssh dneil@bluenose.cs.dal.ca'
+alias pblue='autossh -M 20000 -N dneil@bluenose.cs.dal.ca &'
+alias kblue='killall autossh'
 
 # connect to school mysql
 alias mysql='mysql -u dneil -h db.cs.dal.ca -p'

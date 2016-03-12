@@ -3,8 +3,8 @@
 # others can have additional functionality when used with more options
 
 #source /usr/local/git/contrib/completion/git-completion.bash
-git config --global color.ui true #change to always for colours to carry through pipes
-git config core.fileMode false
+git config --global color.ui true #change to always for colours to carry through pipes 2>/dev/null
+git config core.fileMode false 2>/dev/null
 
 alias gits='cat ~/gits'
 alias mygits='emacs ~/gits'
@@ -35,6 +35,7 @@ alias guignore='([ ! -e .gitignore ] && touch .gitignore) | cat .gitignore | gre
 alias ignores='cat .gitignore'
 
 alias gst='git stash'          #stash away any changes to a branch, usefull so you can switch between branches without commit
+alias gstu='gst save -k'        #stash away any UNSTAGED changes to a branch [optional stash name]
 alias gsts='gst save'          #stash with a name
 alias gstp='gst pop'           #pop last stash back into current working branch
 
@@ -64,10 +65,10 @@ alias gwca='gwc --all'
 alias gwcap='gwca -p'
 
 alias glogm='git log --graph --date-order --decorate'
-alias glogmp='glogmp'
+alias glogmp='glogm -p'
 alias glogam='glogm --all' 
 alias glogamp='glogam -p'
-alias glog='glogm --oneline'
+alias glog='glogm --pretty="%C(yellow) %h %Cgreen%aN %Cblue%ad %Cred%d %Creset%s"'  #used to be oneline
 alias glogs='glog --stat'
 alias glogp='glog -p'
 alias gloga='glog --all'       #show commit graph with all branches
@@ -77,8 +78,18 @@ alias gloga5='gloga -n 5'
 
 #show all dangling commits in the log
 alias oops='glog --all $(git fsck --no-reflogs | grep commit | cut -d" " -f3)'       #show commit graph with all branches
+alias crap='git fsck --cache --unreachable $(git for-each-ref --format="%(objectname)")'
 alias everything='glog --all $(git fsck --no-reflogs | cut -d" " -f3)'       #show commit graph with all branches
 alias cleaneverything='git reflog expire --expire-unreachable=now --all --verbose; git gc --prune=now'
+
+grmbig() {
+	 #remove big files
+	 git filter-branch --force --index-filter 'git rm --cached -r --ignore-unmatch $1' --prune-empty --tag-name-filter cat -- --all
+	 rm -rf .git/refs/original/
+	 git reflog expire --expire=now --all
+	 git gc --prune=now
+	 git gc --aggressive --prune=now
+}
 
 alias gshow='git show'
 alias grefl='git reflog --decorate'
@@ -87,7 +98,7 @@ alias gh='git push'
 alias ght='git push --tags'
 alias gl='git pull'             #not recommended
 alias glr='gl --rebase'         #not recommended
-alias gf='git fetch'            #use this instead, review changes, then merge locally as desired
+alias gf='git fetch --tags'     #use this instead, review changes, then merge locally as desired
 
 alias gua='git subtree add -P'
 alias gul='git subtree pull -P'   #required arguments <folder> [options] <repo> <branch>
